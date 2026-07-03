@@ -90,9 +90,36 @@
   .header-tel{ font-size:15px; font-weight:700; color:var(--green-deep); white-space:nowrap; }
   .header-tel small{ display:block; font-size:10px; font-weight:400; color:#7a8a82; }
 
+  .nav-toggle{
+    display:none; flex-direction:column; justify-content:center; align-items:center;
+    gap:5px; width:36px; height:36px; border:none; background:transparent;
+    cursor:pointer; padding:0; flex:none;
+  }
+  .nav-toggle span{
+    display:block; width:24px; height:2px; background:var(--green-deep);
+    border-radius:2px; transition:transform .2s, opacity .2s;
+  }
+  .nav-toggle.is-active span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav-toggle.is-active span:nth-child(2){ opacity:0; }
+  .nav-toggle.is-active span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
   @media (max-width:900px){
-    nav.gnav{ display:none; }
+    .header-inner{ flex-wrap:wrap; }
+    .nav-toggle{ display:flex; }
     .header-tel small{ display:none; }
+
+    nav.gnav{
+      display:none; order:3; width:100%; flex-basis:100%;
+      border-top:1px solid var(--line); margin-top:14px; padding-top:8px;
+    }
+    nav.gnav.is-open{ display:block; }
+    nav.gnav > ul{ flex-direction:column; gap:0; }
+    nav.gnav > ul > li > a{ padding:12px 4px; }
+    nav.gnav .sub-menu{
+      position:static; display:none; border:none; box-shadow:none;
+      min-width:0; padding:0 0 6px 14px; margin:0;
+    }
+    nav.gnav li.sub-open > .sub-menu{ display:block; }
   }
 
   /* ---------- Hero ---------- */
@@ -257,7 +284,7 @@
       <small>大阪市平野区・内科／在宅医療</small>
     </a>
 
-    <nav class="gnav">
+    <nav class="gnav" id="gnav">
       <ul>
         <li><a>医院紹介</a>
           <ul class="sub-menu">
@@ -294,6 +321,10 @@
       <div class="header-tel">06-6777-9622<small>FAX 06-6777-9632</small></div>
       <a class="btn-reserve" href="#">WEB予約</a>
     </div>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="gnav">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -516,6 +547,43 @@
   </nav>
   <p class="copyright">© Sakuranoki Clinic. All rights reserved.(テストページ)</p>
 </footer>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var gnav = document.getElementById('gnav');
+
+    function closeMenu(){
+      gnav.classList.remove('is-open');
+      toggle.classList.remove('is-active');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'メニューを開く');
+    }
+
+    toggle.addEventListener('click', function(){
+      var isOpen = gnav.classList.toggle('is-open');
+      toggle.classList.toggle('is-active', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+    });
+
+    gnav.querySelectorAll(':scope > ul > li').forEach(function(li){
+      var link = li.querySelector(':scope > a');
+      if (li.querySelector(':scope > .sub-menu') && !link.hasAttribute('href')){
+        link.addEventListener('click', function(e){
+          e.preventDefault();
+          li.classList.toggle('sub-open');
+        });
+      } else {
+        link.addEventListener('click', closeMenu);
+      }
+    });
+
+    gnav.querySelectorAll('.sub-menu a').forEach(function(link){
+      link.addEventListener('click', closeMenu);
+    });
+  })();
+</script>
 
 </body>
 </html>
