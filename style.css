@@ -178,9 +178,18 @@ section{ padding:64px 0; scroll-margin-top:84px; }
 /* ---------- News + Hours ---------- */
 .news-hours{ background:var(--white); }
 .nh-grid{ display:grid; grid-template-columns:1.1fr 1fr; gap:40px; }
-.nh-col h3{ font-size:16px; color:var(--green-deep); margin-bottom:16px; border-bottom:2px solid var(--green-pale); padding-bottom:10px; }
-.news-item{ display:flex; gap:16px; padding:12px 0; border-bottom:1px solid var(--line); font-size:13px; }
+.nh-col h3{
+  font-size:16px; color:var(--green-deep); margin-bottom:16px; border-bottom:2px solid var(--green-pale);
+  padding-bottom:10px; display:flex; align-items:center; justify-content:space-between; gap:10px;
+}
+.news-all-link{
+  display:inline-block; font-size:11px; font-weight:500; color:var(--green-deep);
+  border:1px solid var(--green-deep); border-radius:999px; padding:3px 12px; white-space:nowrap;
+}
+.news-all-link:hover{ background:var(--green-pale); }
+.news-item{ display:flex; gap:16px; padding:12px 0; border-bottom:1px solid var(--line); font-size:13px; scroll-margin-top:84px; }
 .news-item time{ color:var(--green); font-weight:700; flex:none; width:100px; }
+.news-item a:hover{ text-decoration:underline; }
 table.hours{ width:100%; border-collapse:collapse; font-size:13px; text-align:center; }
 table.hours th, table.hours td{ border:1px solid var(--line); padding:9px 4px; }
 table.hours thead th{ background:var(--green-pale); color:var(--green-deep); }
