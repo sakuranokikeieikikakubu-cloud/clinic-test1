@@ -3,17 +3,19 @@
   --green:        #c96b83;
   --green-pale:   #f7e3e7;
   --gold:         #c9a24a;
-  --ink:          #22302a;
   --paper:        #fbfaf6;
   --line:         #dde3de;
   --white:        #ffffff;
+
+  --text-heading: #22302a;
+  --text-body:    #47393c;
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
 html{ scroll-behavior:smooth; }
 body{
   font-family:"Noto Sans JP", sans-serif;
-  color:var(--ink);
+  color:var(--text-heading);
   background:var(--paper);
   line-height:1.8;
   font-size:15px;
@@ -80,7 +82,7 @@ nav.gnav .sub-menu li a:hover{ background:var(--green-pale); color:var(--green-d
   padding:9px 12px; border-radius:999px; white-space:nowrap;
 }
 .header-tel{ font-size:15px; font-weight:700; color:var(--green-deep); white-space:nowrap; }
-.header-tel small{ display:block; font-size:10px; font-weight:400; color:#8a7b7e; }
+.header-tel small{ display:block; font-size:10px; font-weight:400; color:var(--text-body); }
 
 .nav-toggle{
   display:none; flex-direction:column; justify-content:center; align-items:center;
@@ -142,10 +144,10 @@ nav.gnav .sub-menu li a:hover{ background:var(--green-pale); color:var(--green-d
 
 /* ---------- Breadcrumb ---------- */
 .breadcrumb{ background:var(--paper); border-bottom:1px solid var(--line); }
-.breadcrumb .container{ padding:10px 24px; display:flex; flex-wrap:wrap; align-items:center; gap:6px; font-size:12px; color:#8a7b7e; }
+.breadcrumb .container{ padding:10px 24px; display:flex; flex-wrap:wrap; align-items:center; gap:6px; font-size:12px; color:var(--text-body); }
 .breadcrumb a{ color:var(--green-deep); }
 .breadcrumb a:hover{ text-decoration:underline; }
-.breadcrumb .sep{ color:#c2b3b6; }
+.breadcrumb .sep{ color:var(--text-body); }
 
 /* ---------- Page title (internal pages) ---------- */
 .page-title{
@@ -162,7 +164,7 @@ nav.gnav .sub-menu li a:hover{ background:var(--green-pale); color:var(--green-d
 .page-body h2{ font-size:19px; color:var(--green-deep); margin:28px 0 14px; }
 .page-body h2:first-child{ margin-top:0; }
 .page-body h3{ font-size:15px; color:var(--green-deep); margin:18px 0 10px; }
-.page-body p{ font-size:14px; color:#47393c; margin-bottom:14px; }
+.page-body p{ font-size:14px; color:var(--text-body); margin-bottom:14px; }
 
 /* ---------- News article ---------- */
 .article-container{ max-width:760px; }
@@ -170,7 +172,7 @@ nav.gnav .sub-menu li a:hover{ background:var(--green-pale); color:var(--green-d
   display:inline-flex; align-items:center; gap:6px; font-size:13px;
   color:var(--green); font-weight:700; margin-bottom:24px;
 }
-.article-body p{ font-size:14px; color:#47393c; margin-bottom:16px; line-height:1.9; }
+.article-body p{ font-size:14px; color:var(--text-body); margin-bottom:16px; line-height:1.9; }
 
 .map-embed{
   aspect-ratio:16/9; border-radius:10px; background:var(--green-pale);
@@ -211,7 +213,7 @@ section{ padding:64px 0; scroll-margin-top:84px; }
 
 .news-list-row{
   display:flex; gap:16px; padding:16px 6px; border-bottom:1px solid var(--line);
-  font-size:14px; color:var(--ink); cursor:pointer; transition:background .15s;
+  font-size:14px; color:var(--text-heading); cursor:pointer; transition:background .15s;
 }
 .news-list-row time{ color:var(--green); font-weight:700; flex:none; width:110px; }
 .news-list-row:hover{ background:var(--green-pale); }
@@ -219,7 +221,7 @@ section{ padding:64px 0; scroll-margin-top:84px; }
 table.hours{ width:100%; border-collapse:collapse; font-size:13px; text-align:center; }
 table.hours th, table.hours td{ border:1px solid var(--line); padding:9px 4px; }
 table.hours thead th{ background:var(--green-pale); color:var(--green-deep); }
-.hours-note{ font-size:12px; color:#77696d; margin-top:10px; }
+.hours-note{ font-size:12px; color:var(--text-body); margin-top:10px; }
 
 /* ---------- Service banners ---------- */
 .services{ background:var(--green-pale); }
@@ -249,7 +251,7 @@ table.hours thead th{ background:var(--green-pale); color:var(--green-deep); }
 }
 .f-no{ font-family:"Zen Old Mincho",serif; font-size:12px; color:var(--gold); letter-spacing:.1em; margin-bottom:8px; }
 .f-title{ font-size:18px; color:var(--green-deep); margin-bottom:12px; }
-.f-text{ font-size:13px; color:#594a4e; }
+.f-text{ font-size:13px; color:var(--text-body); }
 
 /* ---------- Symptom search ---------- */
 .symptoms{ background:var(--white); }
@@ -258,7 +260,7 @@ table.hours thead th{ background:var(--green-pale); color:var(--green-deep); }
 .symptom-tag{
   display:inline-block; font-size:13px; padding:6px 14px;
   background:var(--paper); border:1px solid var(--line); border-radius:999px;
-  color:var(--ink); font-weight:400; cursor:default;
+  color:var(--text-heading); font-weight:400; cursor:default;
 }
 .symptom-tag.tentative{ background:#fdf9f0; color:#8a6414; border-color:#f0d9a6; }
 .symptom-tag.tentative::after{ content:"(仮)"; margin-left:4px; font-size:10px; }
@@ -272,7 +274,7 @@ table.hours thead th{ background:var(--green-pale); color:var(--green-deep); }
   color:var(--green); font-size:12px;
 }
 .greeting h3{ font-size:19px; color:var(--green-deep); margin-bottom:16px; }
-.greeting p{ font-size:13px; color:#47393c; margin-bottom:12px; }
+.greeting p{ font-size:13px; color:var(--text-body); margin-bottom:12px; }
 .greet-role{ font-size:12px; color:var(--gold); font-weight:700; }
 
 /* ---------- Area (home visit range) ---------- */
@@ -283,7 +285,7 @@ table.hours thead th{ background:var(--green-pale); color:var(--green-deep); }
   border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
   color:var(--green-deep); font-size:12px;
 }
-.area p{ font-size:13px; color:#594a4e; max-width:640px; margin:14px auto 0; }
+.area p{ font-size:13px; color:var(--text-body); max-width:640px; margin:14px auto 0; }
 
 /* ---------- Affiliated hospitals ---------- */
 .renkei{ background:var(--green-pale); }
