@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont/tabler-icons.min.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,15 +19,16 @@
 <header class="site-header">
   <div class="header-inner">
     <a class="logo" href="index.html">
-      <svg class="leaf" viewBox="0 0 24 24" fill="none"><path d="M4 20C4 10 10 4 20 4C20 14 14 20 4 20Z" fill="#c96b83"/><path d="M4 20C8 16 12 12 20 4" stroke="#f7e3e7" stroke-width="1.2"/></svg>
+      <img src="images/logo.png" class="leaf" alt="">
       <span class="logo-text">さくらの樹クリニック<small>大阪市平野区・内科／在宅医療</small></span>
     </a>
 
     <nav class="gnav" id="gnav">
       <ul>
+        <li><a href="index.html">ホーム</a></li>
         <li><a>医院紹介<span class="nav-chevron"></span></a>
           <ul class="sub-menu">
-            <li><a href="greeting.html">ごあいさつ</a></li>
+            <li><a href="doctor.html">医師紹介</a></li>
             <li><a href="clinic.html">院内紹介</a></li>
           </ul>
         </li>
@@ -44,14 +46,13 @@
             <li><a href="home-medical.html#area">対応エリア</a></li>
           </ul>
         </li>
-        <li><a href="doctor.html">医師紹介</a></li>
         <li><a>アクセス・診療時間<span class="nav-chevron"></span></a>
           <ul class="sub-menu">
             <li><a href="access.html#hours">診療時間</a></li>
             <li><a href="access.html#map">アクセス</a></li>
           </ul>
         </li>
-        <li><a href="#">スタッフブログ</a></li>
+        <li><a href="blog.html">スタッフブログ</a></li>
       </ul>
     </nav>
 
@@ -70,7 +71,7 @@
   <div class="hero-inner">
     <p class="hero-eyebrow">SAKURANOKI CLINIC</p>
     <h2>外来から在宅まで、<br>地域に寄り添う医療を。</h2>
-    <p>大阪市平野区のさくらの樹クリニックは、内科・外科の外来診療とあわせて、訪問診療・往診による在宅医療にも力を入れています。</p>
+    <p>さくらの樹クリニックは内科・外科の外来診療とあわせて、<br>訪問診療・往診による在宅医療にも力を入れています。</p>
     <span class="hero-note">【仮】メインビジュアル画像プレースホルダー</span>
   </div>
 </section>
@@ -82,8 +83,8 @@
         <span>お知らせ <span style="font-size:11px;color:var(--text-body);">NEWS</span></span>
         <a class="news-all-link" href="news.html">一覧</a>
       </h3>
-      <div class="news-item"><time>2026.06.10</time><a href="news-20260610.html">スタッフブログを開設いたしました。ぜひご覧ください。</a></div>
-      <div class="news-item"><time>2025.12.20</time><a href="news-20251220.html">年末年始の休診期間についてお知らせしております。</a></div>
+      <div class="news-item"><time>2026.06.10</time><a href="news.html#news-20260610">スタッフブログを開設いたしました。ぜひご覧ください。</a></div>
+      <div class="news-item"><time>2025.12.20</time><a href="news.html#news-20251220">年末年始の休診期間についてお知らせしております。</a></div>
     </div>
     <div class="nh-col">
       <h3><span>診療時間 <span style="font-size:11px;color:var(--text-body);">CONSULTATION HOURS</span></span></h3>
@@ -92,7 +93,7 @@
         <tbody>
           <tr>
             <th>9:00〜12:00</th>
-            <td>●</td><td>－</td><td>●</td><td>●</td><td>●</td>
+            <td><span class="dept-badge">内科・外科</span><span class="dept-staff">院長</span></td><td class="closed">休診</td><td><span class="dept-badge">内科・外科</span><span class="dept-staff">院長</span></td><td><span class="dept-badge">内科・循環器内科</span><span class="dept-staff">非常勤医師</span></td><td><span class="dept-badge">内科・外科</span><span class="dept-staff">院長</span></td>
           </tr>
         </tbody>
       </table>
@@ -106,15 +107,57 @@
   <div class="container">
     <div class="sec-head">
       <p class="eyebrow">MEDICAL INFORMATION</p>
-      <h2>診療案内</h2>
+      <h2><svg class="sec-leaf" viewBox="0 0 24 24" fill="none"><path d="M4 20C4 10 10 4 20 4C20 14 14 20 4 20Z" fill="currentColor"/></svg>診療案内</h2>
     </div>
     <div class="svc-grid">
-      <a class="svc-card" href="medical.html#internal"><div class="ico">🩺</div><h4>内科</h4><span>詳しくはこちら</span></a>
-      <a class="svc-card" href="medical.html#surgery"><div class="ico">🔬</div><h4>外科</h4><span>詳しくはこちら</span></a>
-      <a class="svc-card" href="medical.html#cardiology"><div class="ico">❤️</div><h4>循環器内科</h4><span>詳しくはこちら</span></a>
-      <a class="svc-card" href="home-medical.html#home-visit"><div class="ico">🏠</div><h4>訪問診療</h4><span>詳しくはこちら</span></a>
-      <a class="svc-card" href="home-medical.html#house-call"><div class="ico">🚑</div><h4>往診</h4><span>詳しくはこちら</span></a>
-      <a class="svc-card" href="home-medical.html#home-visit"><div class="ico">🧑‍⚕️</div><h4>訪問リハビリ</h4><span>詳しくはこちら</span></a>
+      <a class="svc-card" href="medical.html#internal">
+        <div class="svc-photo">写真</div>
+        <div class="svc-body">
+          <i class="ti ti-stethoscope ico"></i>
+          <h4>内科</h4>
+          <span>詳しくはこちら</span>
+        </div>
+      </a>
+      <a class="svc-card" href="medical.html#surgery">
+        <div class="svc-photo">写真</div>
+        <div class="svc-body">
+          <i class="ti ti-first-aid-kit ico"></i>
+          <h4>外科</h4>
+          <span>詳しくはこちら</span>
+        </div>
+      </a>
+      <a class="svc-card" href="medical.html#cardiology">
+        <div class="svc-photo">写真</div>
+        <div class="svc-body">
+          <i class="ti ti-heartbeat ico"></i>
+          <h4>循環器内科</h4>
+          <span>詳しくはこちら</span>
+        </div>
+      </a>
+      <a class="svc-card" href="home-medical.html#home-visit">
+        <div class="svc-photo">写真</div>
+        <div class="svc-body">
+          <i class="ti ti-home ico"></i>
+          <h4>訪問診療</h4>
+          <span>詳しくはこちら</span>
+        </div>
+      </a>
+      <a class="svc-card" href="home-medical.html#house-call">
+        <div class="svc-photo">写真</div>
+        <div class="svc-body">
+          <i class="ti ti-ambulance ico"></i>
+          <h4>往診</h4>
+          <span>詳しくはこちら</span>
+        </div>
+      </a>
+      <a class="svc-card" href="home-medical.html#home-visit">
+        <div class="svc-photo">写真</div>
+        <div class="svc-body">
+          <i class="ti ti-walk ico"></i>
+          <h4>訪問リハビリ</h4>
+          <span>詳しくはこちら</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -211,7 +254,7 @@
       <p>また、病診連携・診診連携も積極的に行い、高度な検査や入院が必要になった場合は専門の病医院をご紹介し、専門外の疾患については他院に紹介依頼をいたします。</p>
       <p>身近なかかりつけ医として、クリニックでの診療・在宅医療とさまざまな形で患者さまをサポートしてまいります。</p>
       <p class="greet-role">院長</p>
-      <a class="back-link" href="greeting.html">ごあいさつを詳しく見る</a>
+      <a class="back-link" href="doctor.html">ごあいさつを詳しく見る</a>
     </div>
   </div>
 </section>
@@ -269,10 +312,10 @@
 <footer id="footer">
   <div class="container foot-grid">
     <div>
-      <div class="foot-logo">さくらの樹クリニック</div>
+      <div class="foot-logo"><img src="images/logo.png" class="foot-leaf" alt="">さくらの樹クリニック</div>
       <table class="hours">
         <thead><tr><th>時間</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th></tr></thead>
-        <tbody><tr><th>9:00〜12:00</th><td>●</td><td>－</td><td>●</td><td>●</td><td>●</td></tr></tbody>
+        <tbody><tr><th>9:00〜12:00</th><td><span class="dept-badge">内科・外科</span><span class="dept-staff">院長</span></td><td class="closed">休診</td><td><span class="dept-badge">内科・外科</span><span class="dept-staff">院長</span></td><td><span class="dept-badge">内科・循環器内科</span><span class="dept-staff">非常勤医師</span></td><td><span class="dept-badge">内科・外科</span><span class="dept-staff">院長</span></td></tr></tbody>
       </table>
       <p class="foot-addr">〒547-0022　大阪市平野区瓜破東1-1-2 シャルマンコーポ南平野1階</p>
       <p class="foot-tel"><a href="tel:0667779622">06-6777-9622</a></p>
@@ -287,7 +330,7 @@
     <a href="home-medical.html">在宅医療</a>
     <a href="doctor.html">医師紹介</a>
     <a href="access.html">アクセス</a>
-    <a href="#">スタッフブログ</a>
+    <a href="blog.html">スタッフブログ</a>
   </nav>
   <p class="copyright">© Sakuranoki Clinic. All rights reserved.(テストページ)</p>
 </footer>
