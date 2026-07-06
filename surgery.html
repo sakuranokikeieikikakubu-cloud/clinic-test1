@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>外科｜さくらの樹クリニック</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="test-banner">これはGitHub Pages公開テスト用の仮ページです。内容・画像はすべて仮のものです。</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="index.html">
+      <svg class="leaf" viewBox="0 0 24 24" fill="none"><path d="M4 20C4 10 10 4 20 4C20 14 14 20 4 20Z" fill="#c96b83"/><path d="M4 20C8 16 12 12 20 4" stroke="#f7e3e7" stroke-width="1.2"/></svg>
+      さくらの樹クリニック
+      <small>大阪市平野区・内科／在宅医療</small>
+    </a>
+
+    <nav class="gnav" id="gnav">
+      <ul>
+        <li><a>医院紹介</a>
+          <ul class="sub-menu">
+            <li><a href="greeting.html">ごあいさつ</a></li>
+            <li><a href="clinic.html">院内紹介</a></li>
+          </ul>
+        </li>
+        <li><a href="medical.html">診療案内</a>
+          <ul class="sub-menu">
+            <li><a href="internal.html">内科</a></li>
+            <li><a href="surgery.html">外科</a></li>
+            <li><a href="cardiology.html">循環器内科</a></li>
+          </ul>
+        </li>
+        <li><a href="home-medical.html">在宅医療</a>
+          <ul class="sub-menu">
+            <li><a href="home-visit.html">訪問診療</a></li>
+            <li><a href="house-call.html">往診</a></li>
+            <li><a href="area.html">対応エリア</a></li>
+          </ul>
+        </li>
+        <li><a href="doctor.html">医師紹介</a></li>
+        <li><a>アクセス・診療時間</a>
+          <ul class="sub-menu">
+            <li><a href="access.html#hours">診療時間</a></li>
+            <li><a href="access.html#map">アクセス</a></li>
+          </ul>
+        </li>
+        <li><a href="#">スタッフブログ</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-cta">
+      <div class="header-tel">06-6777-9622<small>FAX 06-6777-9632</small></div>
+      <a class="btn-reserve" href="#">WEB予約</a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="gnav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="page-title">
+  <div class="container">
+    <p class="eyebrow">SURGERY</p>
+    <h1>外科</h1>
+  </div>
+</section>
+
+<section class="page-body">
+  <div class="container">
+    <h2>【仮】外科診療について<span class="placeholder-tag">仮</span></h2>
+    <p>切り傷・すり傷・やけどなどの外傷処置や、日帰りでの小手術、傷あとのケアなどに対応する予定です。(仮テキスト)</p>
+    <p>詳しい診療内容や対応可能な処置については、準備が整い次第このページでご案内いたします。(仮テキスト)</p>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="container foot-grid">
+    <div>
+      <div class="foot-logo">さくらの樹クリニック</div>
+      <table class="hours">
+        <thead><tr><th>時間</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th></tr></thead>
+        <tbody><tr><th>9:00〜12:00</th><td>●</td><td>－</td><td>●</td><td>●</td><td>●</td></tr></tbody>
+      </table>
+      <p class="foot-addr">〒547-0022　大阪市平野区瓜破東1-1-2 シャルマンコーポ南平野1階</p>
+      <p class="foot-tel"><a href="tel:0667779622">06-6777-9622</a></p>
+      <div class="foot-sns"><span>Instagram:</span><a href="https://www.instagram.com/sakuranoki9622/" target="_blank">@sakuranoki9622</a></div>
+    </div>
+    <div class="foot-map">【仮】Googleマップ埋め込みプレースホルダー</div>
+  </div>
+
+  <nav class="foot-menu">
+    <a href="index.html">ホーム</a>
+    <a href="medical.html">診療案内</a>
+    <a href="home-medical.html">在宅医療</a>
+    <a href="doctor.html">医師紹介</a>
+    <a href="access.html">アクセス</a>
+    <a href="#">スタッフブログ</a>
+  </nav>
+  <p class="copyright">© Sakuranoki Clinic. All rights reserved.(テストページ)</p>
+</footer>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var gnav = document.getElementById('gnav');
+
+    function closeMenu(){
+      gnav.classList.remove('is-open');
+      toggle.classList.remove('is-active');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'メニューを開く');
+    }
+
+    toggle.addEventListener('click', function(){
+      var isOpen = gnav.classList.toggle('is-open');
+      toggle.classList.toggle('is-active', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+    });
+
+    gnav.querySelectorAll(':scope > ul > li').forEach(function(li){
+      var link = li.querySelector(':scope > a');
+      if (li.querySelector(':scope > .sub-menu') && !link.hasAttribute('href')){
+        link.addEventListener('click', function(e){
+          e.preventDefault();
+          li.classList.toggle('sub-open');
+        });
+      } else {
+        link.addEventListener('click', closeMenu);
+      }
+    });
+
+    gnav.querySelectorAll('.sub-menu a').forEach(function(link){
+      link.addEventListener('click', closeMenu);
+    });
+  })();
+</script>
+
+</body>
+</html>
