@@ -50,6 +50,7 @@ header.site-header{
   display:flex; align-items:center; gap:8px;
 }
 .logo .leaf{ width:20px; height:20px; flex:none; }
+.logo-text{ display:flex; flex-direction:column; line-height:1.3; }
 .logo small{ display:block; font-family:"Noto Sans JP",sans-serif; font-size:10px; font-weight:400; color:var(--green); letter-spacing:.08em; }
 
 @media (min-width:1100px){
@@ -96,8 +97,10 @@ nav.gnav .sub-menu li a:hover{ background:var(--green-pale); color:var(--green-d
 
 @media (max-width:1099px){
   .header-inner{ flex-wrap:wrap; }
-  .nav-toggle{ display:flex; }
+  .nav-toggle{ display:flex; order:1; }
   .header-tel small{ display:none; }
+
+  .header-cta{ order:2; flex-basis:100%; justify-content:flex-end; margin-top:10px; }
 
   nav.gnav{
     display:none; order:3; width:100%; flex-basis:100%;
@@ -137,6 +140,13 @@ nav.gnav .sub-menu li a:hover{ background:var(--green-pale); color:var(--green-d
   border-radius:999px; padding:6px 16px;
 }
 
+/* ---------- Breadcrumb ---------- */
+.breadcrumb{ background:var(--paper); border-bottom:1px solid var(--line); }
+.breadcrumb .container{ padding:10px 24px; display:flex; flex-wrap:wrap; align-items:center; gap:6px; font-size:12px; color:#8a7b7e; }
+.breadcrumb a{ color:var(--green-deep); }
+.breadcrumb a:hover{ text-decoration:underline; }
+.breadcrumb .sep{ color:#c2b3b6; }
+
 /* ---------- Page title (internal pages) ---------- */
 .page-title{
   background:linear-gradient(135deg, var(--green-deep), var(--green) 70%);
@@ -153,6 +163,14 @@ nav.gnav .sub-menu li a:hover{ background:var(--green-pale); color:var(--green-d
 .page-body h2:first-child{ margin-top:0; }
 .page-body h3{ font-size:15px; color:var(--green-deep); margin:18px 0 10px; }
 .page-body p{ font-size:14px; color:#47393c; margin-bottom:14px; }
+
+/* ---------- News article ---------- */
+.article-container{ max-width:760px; }
+.news-date{
+  display:inline-flex; align-items:center; gap:6px; font-size:13px;
+  color:var(--green); font-weight:700; margin-bottom:24px;
+}
+.article-body p{ font-size:14px; color:#47393c; margin-bottom:16px; line-height:1.9; }
 
 .map-embed{
   aspect-ratio:16/9; border-radius:10px; background:var(--green-pale);
@@ -180,16 +198,24 @@ section{ padding:64px 0; scroll-margin-top:84px; }
 .nh-grid{ display:grid; grid-template-columns:1.1fr 1fr; gap:40px; }
 .nh-col h3{
   font-size:16px; color:var(--green-deep); margin-bottom:16px; border-bottom:2px solid var(--green-pale);
-  padding-bottom:10px; display:flex; align-items:center; justify-content:space-between; gap:10px;
+  padding-bottom:10px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 10px;
 }
 .news-all-link{
   display:inline-block; font-size:11px; font-weight:500; color:var(--green-deep);
   border:1px solid var(--green-deep); border-radius:999px; padding:3px 12px; white-space:nowrap;
 }
 .news-all-link:hover{ background:var(--green-pale); }
-.news-item{ display:flex; gap:16px; padding:12px 0; border-bottom:1px solid var(--line); font-size:13px; scroll-margin-top:84px; }
+.news-item{ display:flex; gap:16px; padding:12px 0; border-bottom:1px solid var(--line); font-size:13px; }
 .news-item time{ color:var(--green); font-weight:700; flex:none; width:100px; }
 .news-item a:hover{ text-decoration:underline; }
+
+.news-list-row{
+  display:flex; gap:16px; padding:16px 6px; border-bottom:1px solid var(--line);
+  font-size:14px; color:var(--ink); cursor:pointer; transition:background .15s;
+}
+.news-list-row time{ color:var(--green); font-weight:700; flex:none; width:110px; }
+.news-list-row:hover{ background:var(--green-pale); }
+.news-list-row:hover span{ text-decoration:underline; }
 table.hours{ width:100%; border-collapse:collapse; font-size:13px; text-align:center; }
 table.hours th, table.hours td{ border:1px solid var(--line); padding:9px 4px; }
 table.hours thead th{ background:var(--green-pale); color:var(--green-deep); }
