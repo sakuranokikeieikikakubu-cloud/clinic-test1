@@ -23,7 +23,7 @@ body{
 a{ color:inherit; text-decoration:none; }
 ul{ list-style:none; }
 img{ max-width:100%; display:block; }
-h1,h2,h3{ font-family:"Zen Old Mincho", serif; }
+h1,h2,h3{ font-family:"Noto Serif JP", serif; }
 
 .test-banner{
   background:#3a2f10;
@@ -47,7 +47,7 @@ header.site-header{
   display:flex; align-items:center; justify-content:space-between; gap:10px;
 }
 .logo{
-  font-family:"Zen Old Mincho", serif;
+  font-family:"Noto Serif JP", serif;
   font-size:19px; font-weight:700; color:var(--green-deep);
   display:flex; align-items:center; gap:8px;
 }
@@ -59,7 +59,7 @@ header.site-header{
   .logo{ white-space:nowrap; flex-shrink:0; }
 }
 
-nav.gnav{ display:flex; min-width:0; }
+nav.gnav{ display:flex; min-width:0; font-family:"Noto Serif JP", serif; }
 nav.gnav > ul{ display:flex; gap:0; }
 nav.gnav > ul > li{ position:relative; }
 nav.gnav > ul > li > a{
@@ -249,7 +249,7 @@ table.hours thead th{ background:var(--green-pale); color:var(--green-deep); }
   display:flex; align-items:center; justify-content:center; color:var(--green);
   font-size:12px; border:1px dashed var(--green);
 }
-.f-no{ font-family:"Zen Old Mincho",serif; font-size:12px; color:var(--gold); letter-spacing:.1em; margin-bottom:8px; }
+.f-no{ font-family:"Noto Serif JP",serif; font-size:12px; color:var(--gold); letter-spacing:.1em; margin-bottom:8px; }
 .f-title{ font-size:18px; color:var(--green-deep); margin-bottom:12px; }
 .f-text{ font-size:13px; color:var(--text-body); }
 
@@ -303,7 +303,7 @@ table.hours thead th{ background:var(--green-pale); color:var(--green-deep); }
 /* ---------- Footer ---------- */
 footer{ background:var(--green-deep); color:#ead1d8; padding:56px 0 0; }
 .foot-grid{ display:grid; grid-template-columns:1.2fr 1fr; gap:44px; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,.15); }
-.foot-logo{ font-family:"Zen Old Mincho",serif; font-size:19px; color:var(--white); margin-bottom:14px; }
+.foot-logo{ font-family:"Noto Serif JP",serif; font-size:19px; color:var(--white); margin-bottom:14px; }
 footer table.hours{ color:#ead1d8; }
 footer table.hours th, footer table.hours td{ border-color:rgba(255,255,255,.2); }
 footer table.hours thead th{ background:rgba(255,255,255,.08); color:var(--white); }
