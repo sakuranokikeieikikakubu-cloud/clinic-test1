@@ -193,10 +193,10 @@ nav.gnav .sub-menu li a:hover{ background:var(--green-pale); color:var(--green-d
 .article-body p{ font-size:14px; color:var(--text-body); margin-bottom:16px; line-height:1.9; }
 
 .map-embed{
-  aspect-ratio:16/9; border-radius:10px; background:var(--green-pale);
-  border:1px dashed var(--green); display:flex; align-items:center; justify-content:center;
-  font-size:12px; color:var(--green-deep); margin:14px 0;
+  aspect-ratio:16/9; border-radius:10px; overflow:hidden;
+  border:1px solid var(--line); margin:14px 0;
 }
+.map-embed iframe{ width:100%; height:100%; display:block; border:0; }
 
 .back-link{
   display:inline-block; margin-top:10px; font-size:13px; color:var(--green-deep);
@@ -328,10 +328,10 @@ footer table.hours thead th{ background:rgba(255,255,255,.08); color:var(--white
 .foot-addr{ font-size:13px; margin:14px 0; }
 .foot-tel{ font-size:20px; font-weight:700; color:var(--white); }
 .foot-map{
-  aspect-ratio:16/9; border-radius:10px; background:rgba(255,255,255,.06);
-  border:1px dashed rgba(255,255,255,.3); display:flex; align-items:center; justify-content:center;
-  font-size:12px; color:#ead1d8;
+  aspect-ratio:16/9; border-radius:10px; overflow:hidden;
+  border:1px solid rgba(255,255,255,.15);
 }
+.foot-map iframe{ width:100%; height:100%; display:block; border:0; }
 .foot-sns{ margin-top:14px; display:inline-flex; align-items:center; gap:8px; font-size:13px; }
 .foot-menu{ display:flex; flex-wrap:wrap; gap:18px; justify-content:center; padding:24px 0; font-size:13px; }
 .copyright{ text-align:center; font-size:11px; color:#c2a8af; padding:16px 0 28px; }
