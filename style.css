@@ -489,9 +489,15 @@ td.closed{ color:var(--text-body); font-weight:700; }
 .sisters{ background:var(--white); }
 .sisters-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
 .sister-card{
-  border:1px solid var(--line); border-radius:8px; padding:18px 10px; text-align:center;
-  font-size:12px; color:var(--green-deep); font-weight:500;
+  display:flex; align-items:center; gap:12px; text-align:left;
+  border:1px solid var(--line); border-radius:8px; padding:14px 12px;
+  transition:border-color .15s, box-shadow .15s, transform .15s;
 }
+.sister-card:hover{ border-color:var(--green-deep); box-shadow:0 6px 16px rgba(30,60,45,.08); transform:translateY(-2px); }
+.sister-icon{ width:44px; height:44px; flex:none; border-radius:8px; background:#e4e4e4; }
+.sister-body{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+.sister-name{ font-size:12.5px; color:var(--green-deep); font-weight:700; line-height:1.35; }
+.sister-sub{ font-size:10.5px; color:var(--text-body); font-weight:400; line-height:1.3; }
 
 /* ---------- Footer ---------- */
 footer{ background:var(--green-deep); color:#ead1d8; padding:56px 0 0; }
