@@ -138,7 +138,7 @@ nav.gnav .sub-menu li a:hover{ background:var(--green-pale); color:var(--green-d
 
 /* ---------- Hero ---------- */
 .hero{
-  background:var(--green-deep);
+  background:var(--green-pale);
   color:var(--white);
   padding:70px 24px;
   text-align:center;
