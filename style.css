@@ -413,8 +413,7 @@ td.closed{ color:var(--text-body); font-weight:700; }
 .greet-grid{ display:grid; grid-template-columns:0.9fr 1.4fr; gap:44px; align-items:center; }
 .greet-photo{
   aspect-ratio:3/3.4; border-radius:12px; background:var(--white);
-  border:1px dashed var(--green); display:flex; align-items:center; justify-content:center;
-  color:var(--green); font-size:12px;
+  width:100%; height:auto; object-fit:cover; object-position:center 20%; display:block;
 }
 .greeting h3{ font-size:19px; color:var(--green-deep); margin-bottom:16px; }
 .greeting p{ font-size:13px; color:var(--text-body); margin-bottom:12px; }
