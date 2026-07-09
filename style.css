@@ -482,8 +482,16 @@ td.closed{ color:var(--text-body); font-weight:700; }
 
 /* ---------- Affiliated hospitals ---------- */
 .renkei{ background:var(--green-pale); }
-.renkei-list{ display:grid; grid-template-columns:1fr 1fr; gap:10px 32px; font-size:13px; }
-.renkei-list li{ padding:8px 0; border-bottom:1px dotted var(--line); }
+.renkei-list{
+  display:grid; grid-template-columns:1fr 1fr; gap:2px 32px; font-size:13px;
+  max-width:820px; margin:0 auto;
+}
+.renkei-list li{
+  display:flex; align-items:center; gap:10px;
+  padding:14px 4px; line-height:1.5;
+  border-bottom:1px solid rgba(212,82,126,.18);
+}
+.renkei-list li i{ flex:none; font-size:17px; color:var(--gold); }
 
 /* ---------- Sister clinics banner ---------- */
 .sisters{ background:var(--white); }
