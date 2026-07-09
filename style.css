@@ -492,6 +492,7 @@ td.closed{ color:var(--text-body); font-weight:700; }
   border-bottom:1px solid rgba(212,82,126,.18);
 }
 .renkei-list li i{ flex:none; font-size:17px; color:var(--gold); }
+.renkei-note{ text-align:center; font-size:12px; color:var(--text-body); margin-top:22px; }
 
 /* ---------- Sister clinics banner ---------- */
 .sisters{ background:var(--white); }
