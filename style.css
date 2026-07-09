@@ -503,7 +503,7 @@ td.closed{ color:var(--text-body); font-weight:700; }
   transition:border-color .15s, box-shadow .15s, transform .15s;
 }
 .sister-card:hover{ border-color:var(--green-deep); box-shadow:0 6px 16px rgba(30,60,45,.08); transform:translateY(-2px); }
-.sister-icon{ width:44px; height:44px; flex:none; border-radius:8px; background:#e4e4e4; }
+.sister-icon{ width:44px; height:44px; flex:none; border-radius:8px; background:#e4e4e4; object-fit:cover; display:block; }
 .sister-body{ display:flex; flex-direction:column; gap:2px; min-width:0; }
 .sister-name{ font-size:12.5px; color:var(--green-deep); font-weight:700; line-height:1.35; }
 .sister-sub{ font-size:10.5px; color:var(--text-body); font-weight:400; line-height:1.3; }
