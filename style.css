@@ -131,9 +131,8 @@ nav.gnav .sub-menu li a:hover{ background:var(--green-pale); color:var(--green-d
 @media (max-width:1099px){
   .header-inner{ flex-wrap:wrap; }
   .nav-toggle{ display:flex; order:1; }
-  .header-tel small{ display:none; }
 
-  .header-cta{ order:2; flex-basis:100%; justify-content:flex-end; margin-top:10px; }
+  .header-cta{ display:none; }
 
   .mobile-cta-bar{ display:flex; }
   body{ padding-bottom:60px; }
@@ -345,6 +344,8 @@ table.hours tbody td{ height:76px; vertical-align:middle; }
 }
 .dept-staff{ display:block; font-size:10px; color:var(--text-body); }
 td.closed{ color:var(--text-body); font-weight:700; }
+.dept-symbol{ display:none; }
+.hours-legend{ display:none; font-size:12px; color:var(--text-body); line-height:1.6; }
 .hours-note{ font-size:12px; color:var(--text-body); margin-top:10px; }
 
 /* ---------- Service banners ---------- */
@@ -516,11 +517,9 @@ footer{ background:var(--green-deep); color:#ead1d8; padding:56px 0 0; }
   font-family:"Noto Serif JP",serif; font-size:19px; color:var(--white); margin-bottom:14px;
 }
 .foot-leaf{ width:40px; height:40px; flex:none; object-fit:contain; }
-footer table.hours{ color:#ead1d8; }
-footer table.hours th, footer table.hours td{ border-color:rgba(255,255,255,.2); }
-footer table.hours thead th{ background:rgba(255,255,255,.08); color:var(--white); }
-footer .dept-badge{ background:rgba(255,255,255,.15); color:var(--white); }
-footer .dept-staff, footer td.closed{ color:#ead1d8; }
+.foot-hours{ font-size:13px; margin:14px 0; }
+.foot-hours p{ margin-bottom:2px; }
+footer .back-link{ color:var(--white); border-bottom-color:rgba(255,255,255,.5); }
 .foot-addr{ font-size:13px; margin:14px 0; }
 .foot-tel{ font-size:20px; font-weight:700; color:var(--white); }
 .foot-map{
@@ -549,4 +548,24 @@ footer .dept-staff, footer td.closed{ color:#ead1d8; }
     border-top:8px solid var(--green-deep); border-bottom:none;
     border-left:6px solid transparent; border-right:6px solid transparent;
   }
+}
+
+@media (max-width:480px){
+  .hero{ padding:56px 16px; }
+  .hero-inner{ padding:20px 16px; }
+  .hero p{ font-size:11.5px; }
+
+  .news-hours table.hours tbody td{ height:auto; padding:14px 3px; }
+  .news-hours .dept-badge, .news-hours .dept-staff, .news-hours .dept-full{ display:none; }
+  .news-hours .dept-symbol{
+    display:block; font-size:20px; font-weight:700; color:var(--green-deep); line-height:1;
+  }
+  .news-hours td.closed .dept-symbol{ color:var(--text-body); }
+  .news-hours .hours-legend{ display:block; margin-top:10px; }
+
+  .sisters-grid{ grid-template-columns:1fr; }
+  .sister-card{ padding:16px 14px; gap:14px; }
+  .sister-icon{ width:52px; height:52px; }
+  .sister-name{ font-size:13.5px; }
+  .sister-sub{ font-size:11px; }
 }
