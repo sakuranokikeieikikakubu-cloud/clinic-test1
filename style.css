@@ -78,7 +78,7 @@ nav.gnav > ul > li{ position:relative; }
 nav.gnav > ul > li > a{
   display:block; padding:12px 5px; font-size:12px; font-weight:500;
   border-radius:6px; transition:background .15s; white-space:nowrap;
-  position:relative; touch-action:manipulation;
+  position:relative; touch-action:manipulation; cursor:pointer;
 }
 nav.gnav > ul > li > a::after{
   content:""; position:absolute; left:5px; right:5px; bottom:2px;
