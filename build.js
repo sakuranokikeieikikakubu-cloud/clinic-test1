@@ -1,0 +1,121 @@
+// Syncs the shared header, footer, and nav-toggle script into every page.
+// Run `node build.js` after editing files in partials/, then verify pages
+// in the browser as usual before committing.
+
+const fs = require('fs');
+const path = require('path');
+
+const ROOT = __dirname;
+const PARTIALS_DIR = path.join(ROOT, 'partials');
+
+function readPartial(name) {
+  return fs.readFileSync(path.join(PARTIALS_DIR, name), 'utf8');
+}
+
+// Normalize a partial's LF line endings to match the target file's style.
+function matchLineEndings(partial, targetHtml) {
+  const usesCRLF = targetHtml.includes('\r\n');
+  const normalized = partial.replace(/\r\n/g, '\n');
+  return usesCRLF ? normalized.replace(/\n/g, '\r\n') : normalized;
+}
+
+// Replace [startMark ... endMark], where endMark itself IS included in the
+// replaced region. Use when `replacement` already contains its own endMark
+// (e.g. the header partial ends with "</header>").
+function replaceInclusive(html, startMark, endMark, replacement, label, file) {
+  const startIdx = html.indexOf(startMark);
+  if (startIdx === -1) {
+    console.warn(`  [skip] ${label}: start marker not found in ${file}`);
+    return html;
+  }
+  const endIdx = html.indexOf(endMark, startIdx);
+  if (endIdx === -1) {
+    console.warn(`  [skip] ${label}: end marker not found in ${file}`);
+    return html;
+  }
+  const endOfRegion = endIdx + endMark.length;
+  return html.slice(0, startIdx) + replacement + html.slice(endOfRegion);
+}
+
+// Replace [startMark ... endMark), where endMark is NOT included/consumed —
+// it stays untouched right after the replacement. Use when anchoring on a
+// following tag that isn't part of this partial (e.g. footer ends, then
+// "<script>" begins).
+function replaceUpTo(html, startMark, endMark, replacement, label, file) {
+  const startIdx = html.indexOf(startMark);
+  if (startIdx === -1) {
+    console.warn(`  [skip] ${label}: start marker not found in ${file}`);
+    return html;
+  }
+  const endIdx = html.indexOf(endMark, startIdx);
+  if (endIdx === -1) {
+    console.warn(`  [skip] ${label}: end marker not found in ${file}`);
+    return html;
+  }
+  return html.slice(0, startIdx) + replacement + html.slice(endIdx);
+}
+
+function syncNavScript(html, navScriptPartial, file) {
+  const scriptTagIdx = html.indexOf('<script>');
+  if (scriptTagIdx === -1) {
+    console.warn(`  [skip] nav-script: no <script> tag found in ${file}`);
+    return html;
+  }
+  const iifeStart = html.indexOf('(function(){', scriptTagIdx);
+  if (iifeStart === -1) {
+    console.warn(`  [skip] nav-script: no IIFE found in ${file}`);
+    return html;
+  }
+  // Back up to the start of the line so we replace (and correctly
+  // reinstate) the leading indentation too, instead of duplicating it.
+  const lineStart = html.lastIndexOf('\n', iifeStart) + 1;
+
+  const closeMark = '})();';
+  const closeIdx = html.indexOf(closeMark, iifeStart);
+  if (closeIdx === -1) {
+    console.warn(`  [skip] nav-script: closing "})();" not found in ${file}`);
+    return html;
+  }
+  const endOfRegion = closeIdx + closeMark.length;
+
+  return html.slice(0, lineStart) + navScriptPartial + html.slice(endOfRegion);
+}
+
+function main() {
+  const headerPartial = readPartial('header.html');
+  const footerPartial = readPartial('footer.html');
+  const navScriptPartial = readPartial('nav-script.js');
+
+  const targetFiles = fs
+    .readdirSync(ROOT)
+    .filter((f) => f.toLowerCase().endsWith('.html'));
+
+  let changedCount = 0;
+
+  for (const file of targetFiles) {
+    const filePath = path.join(ROOT, file);
+    const original = fs.readFileSync(filePath, 'utf8');
+
+    const header = matchLineEndings(headerPartial, original);
+    const footer = matchLineEndings(footerPartial, original);
+    const navScript = matchLineEndings(navScriptPartial, original);
+    const nl = original.includes('\r\n') ? '\r\n' : '\n';
+
+    let updated = original;
+    updated = replaceInclusive(updated, '<header class="site-header">', '</header>', header, 'header', file);
+    updated = replaceUpTo(updated, '<footer id="footer">', '<script>', footer + nl + nl, 'footer', file);
+    updated = syncNavScript(updated, navScript, file);
+
+    if (updated !== original) {
+      fs.writeFileSync(filePath, updated, 'utf8');
+      console.log(`updated: ${file}`);
+      changedCount++;
+    } else {
+      console.log(`unchanged: ${file}`);
+    }
+  }
+
+  console.log(`\nDone. ${changedCount}/${targetFiles.length} file(s) updated.`);
+}
+
+main();
