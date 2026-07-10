@@ -386,8 +386,6 @@ td.closed{ color:var(--text-body); font-weight:700; }
 .svc-card span{ font-size:12px; color:var(--green); }
 
 /* ---------- Features (5 reasons) ---------- */
-.features .sec-head{ margin-bottom:10px; }
-.features .sec-sub{ text-align:center; font-size:12px; color:#8a6414; margin-bottom:40px; }
 .feature-row{
   display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center;
   padding:30px 0; border-bottom:1px solid var(--line);
