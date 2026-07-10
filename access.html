@@ -142,11 +142,18 @@
     var toggle = document.getElementById('navToggle');
     var gnav = document.getElementById('gnav');
 
+    function resetSubmenus(){
+      gnav.querySelectorAll('.sub-open').forEach(function(li){
+        li.classList.remove('sub-open');
+      });
+    }
+
     function closeMenu(){
       gnav.classList.remove('is-open');
       toggle.classList.remove('is-active');
       toggle.setAttribute('aria-expanded', 'false');
       toggle.setAttribute('aria-label', 'メニューを開く');
+      resetSubmenus();
     }
 
     toggle.addEventListener('click', function(){
@@ -154,6 +161,7 @@
       toggle.classList.toggle('is-active', isOpen);
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       toggle.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+      if (!isOpen) resetSubmenus();
     });
 
     gnav.querySelectorAll(':scope > ul > li').forEach(function(li){
