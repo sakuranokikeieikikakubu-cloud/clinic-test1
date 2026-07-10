@@ -509,6 +509,7 @@ td.closed{ color:var(--text-body); font-weight:700; }
 .sister-body{ display:flex; flex-direction:column; gap:2px; min-width:0; }
 .sister-name{ font-size:12.5px; color:var(--green-deep); font-weight:700; line-height:1.35; }
 .sister-sub{ font-size:10.5px; color:var(--text-body); font-weight:400; line-height:1.3; }
+.sisters-toggle{ display:none; }
 
 /* ---------- Footer ---------- */
 footer{ background:var(--green-deep); color:#ead1d8; padding:56px 0 0; }
@@ -592,4 +593,16 @@ footer .back-link{ color:var(--white); border-bottom-color:rgba(255,255,255,.5);
   .sister-icon{ width:52px; height:52px; }
   .sister-name{ font-size:13.5px; }
   .sister-sub{ font-size:11px; }
+
+  .sisters-grid.is-collapsed .sister-card:nth-child(n+4){ display:none; }
+  .sisters-toggle{
+    display:flex; align-items:center; justify-content:center; gap:6px;
+    width:100%; margin-top:14px; padding:11px 16px;
+    background:var(--green-pale); border:1px solid var(--green-deep); border-radius:999px;
+    font-size:13px; font-weight:700; color:var(--green-deep);
+    transition:background .15s;
+  }
+  .sisters-toggle:hover{ background:var(--white); }
+  .sisters-toggle-icon{ font-size:15px; transition:transform .2s; }
+  .sisters-toggle.is-expanded .sisters-toggle-icon{ transform:rotate(180deg); }
 }

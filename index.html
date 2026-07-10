@@ -316,7 +316,7 @@
       <p class="eyebrow">GROUP CLINICS</p>
       <h2>グループの関連施設</h2>
     </div>
-    <div class="sisters-grid">
+    <div class="sisters-grid" id="sistersGrid">
       <a class="sister-card" href="https://plusd.jp/" target="_blank" rel="noopener">
         <img class="sister-icon" src="images/logo-plusd.jpg" alt="株式会社プラスディー">
         <div class="sister-body">
@@ -374,6 +374,10 @@
         </div>
       </a>
     </div>
+    <button type="button" class="sisters-toggle" id="sistersToggle">
+      <span class="sisters-toggle-text"></span>
+      <i class="ti ti-chevron-down sisters-toggle-icon"></i>
+    </button>
   </div>
 </section>
 
@@ -508,6 +512,31 @@
     if (window.matchMedia('(max-width: 820px)').matches){
       startAutoplay();
     }
+  })();
+
+  (function(){
+    var grid = document.getElementById('sistersGrid');
+    var toggle = document.getElementById('sistersToggle');
+    if (!grid || !toggle) return;
+
+    var SHOW_COUNT = 3;
+    var cards = grid.querySelectorAll('.sister-card');
+    var hiddenCount = Math.max(0, cards.length - SHOW_COUNT);
+    var textEl = toggle.querySelector('.sisters-toggle-text');
+
+    if (hiddenCount <= 0){
+      toggle.style.display = 'none';
+      return;
+    }
+
+    grid.classList.add('is-collapsed');
+    textEl.textContent = '他' + hiddenCount + '施設を見る';
+
+    toggle.addEventListener('click', function(){
+      var collapsed = grid.classList.toggle('is-collapsed');
+      toggle.classList.toggle('is-expanded', !collapsed);
+      textEl.textContent = collapsed ? ('他' + hiddenCount + '施設を見る') : '閉じる';
+    });
   })();
 </script>
 
