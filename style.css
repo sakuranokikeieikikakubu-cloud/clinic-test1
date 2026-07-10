@@ -396,6 +396,7 @@ td.closed{ color:var(--text-body); font-weight:700; }
 .f-no{ font-family:"Noto Serif JP",serif; font-size:12px; color:var(--gold); letter-spacing:.1em; margin-bottom:8px; }
 .f-title{ font-size:18px; color:var(--green-deep); margin-bottom:12px; }
 .f-text{ font-size:13px; color:var(--text-body); }
+.feature-dots{ display:none; }
 
 /* ---------- Symptom search ---------- */
 .symptoms{ background:var(--white); }
@@ -537,8 +538,23 @@ footer .back-link{ color:var(--white); border-bottom-color:rgba(255,255,255,.5);
   .svc-card h4{ font-size:18px; }
   .blog-grid{ grid-template-columns:repeat(2,1fr); }
   .sisters-grid{ grid-template-columns:repeat(2,1fr); }
-  .feature-row, .feature-row.rev{ grid-template-columns:1fr; }
+  .feature-carousel{
+    display:flex; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+    scrollbar-width:none; -ms-overflow-style:none;
+  }
+  .feature-carousel::-webkit-scrollbar{ display:none; }
+  .feature-row, .feature-row.rev{
+    grid-template-columns:1fr; flex:0 0 100%; scroll-snap-align:center;
+    border-bottom:none; padding:0;
+  }
   .feature-row.rev .f-img{ order:0; }
+  .feature-carousel .f-img{ aspect-ratio:16/9; }
+  .feature-dots{ display:flex; justify-content:center; gap:8px; margin-top:18px; }
+  .feature-dot{
+    width:8px; height:8px; padding:0; border:none; border-radius:50%;
+    background:var(--line); transition:width .2s, background-color .2s;
+  }
+  .feature-dot.is-active{ width:20px; border-radius:4px; background:var(--green-deep); }
   .renkei-list{ grid-template-columns:1fr; }
   .hero-inner{ padding:22px 20px; }
   .flow-steps{ grid-template-columns:1fr; gap:28px; }
@@ -562,6 +578,14 @@ footer .back-link{ color:var(--white); border-bottom-color:rgba(255,255,255,.5);
   }
   .news-hours td.closed .dept-symbol{ color:var(--text-body); }
   .news-hours .hours-legend{ display:block; margin-top:10px; }
+
+  #hours table.hours tbody td{ height:auto; padding:14px 3px; }
+  #hours .dept-badge, #hours .dept-staff, #hours .dept-full{ display:none; }
+  #hours .dept-symbol{
+    display:block; font-size:20px; font-weight:700; color:var(--green-deep); line-height:1;
+  }
+  #hours td.closed .dept-symbol{ color:var(--text-body); }
+  #hours .hours-legend{ display:block; margin-top:10px; }
 
   .sisters-grid{ grid-template-columns:1fr; }
   .sister-card{ padding:16px 14px; gap:14px; }
