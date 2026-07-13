@@ -432,8 +432,31 @@ td.closed{ color:var(--text-body); font-weight:700; }
   background:var(--paper); border:1px solid var(--line); border-radius:999px;
   color:var(--text-heading); font-weight:400; cursor:default;
 }
-.symptom-tag.tentative{ background:#fdf9f0; color:#8a6414; border-color:#f0d9a6; }
-.symptom-tag.tentative::after{ content:"(仮)"; margin-left:4px; font-size:10px; }
+/* Clickable tags (homepage "症状・疾患から探す") get a bordered, chip-like
+   look with a trailing arrow; plain <span> tags elsewhere (e.g. department
+   symptom lists) keep the plain outlined style above. Laid out on a fixed
+   grid (rather than flex-wrap's intrinsic widths) so every button in the
+   section shares the same, more generous width. */
+.symptoms .symptom-grid{
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:12px;
+}
+@media (max-width:900px){
+  .symptoms .symptom-grid{ grid-template-columns:repeat(3, 1fr); }
+}
+@media (max-width:600px){
+  .symptoms .symptom-grid{ grid-template-columns:repeat(2, 1fr); }
+}
+a.symptom-tag{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:10px 14px;
+  background:var(--white); border:1.5px solid var(--green-deep); border-radius:8px;
+  color:var(--green-deep); font-weight:700; cursor:pointer; text-align:center;
+  transition:background .15s, border-color .15s;
+}
+a.symptom-tag::after{
+  content:"→"; font-size:14px; font-weight:700; line-height:1; color:var(--green-deep);
+}
+a.symptom-tag:hover{ background:var(--green-pale); border-color:var(--green-deep); }
 
 /* ---------- Greeting ---------- */
 .greeting{ background:var(--green-pale); }
