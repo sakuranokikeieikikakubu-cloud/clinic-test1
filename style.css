@@ -278,6 +278,8 @@ nav.gnav .sub-menu li a{ display:block; padding:9px 12px; font-size:13px; border
 .schedule-table th, .schedule-table td{ border:1px solid var(--line); padding:10px 14px; text-align:left; }
 .schedule-table thead th{ background:var(--green-pale); color:var(--green-deep); }
 .schedule-table td{ color:var(--text-body); line-height:1.7; }
+.alt-bg .schedule-table th, .alt-bg .schedule-table td{ border-color:var(--green-deep); background:var(--white); }
+.alt-bg .schedule-table thead th{ background:var(--green-deep); color:var(--white); }
 
 /* ---------- Blog list ---------- */
 .blog-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
@@ -310,6 +312,16 @@ nav.gnav .sub-menu li a{ display:block; padding:9px 12px; font-size:13px; border
   display:inline-block; margin-top:10px; font-size:13px; color:var(--green-deep);
   border-bottom:1px solid var(--green-deep); padding-bottom:2px;
 }
+
+.btn-cta{
+  display:inline-flex; align-items:center; gap:8px;
+  margin-top:20px; background:var(--green-deep); color:var(--white);
+  font-size:14px; font-weight:700; padding:16px 32px; border-radius:999px;
+  box-shadow:0 8px 20px rgba(212,82,126,.28);
+  transition:background .15s, transform .15s, box-shadow .15s;
+}
+.btn-cta:hover{ background:var(--green); transform:translateY(-2px); box-shadow:0 12px 26px rgba(212,82,126,.34); }
+.btn-cta i{ font-size:16px; }
 
 /* ---------- Section shell ---------- */
 section{ padding:64px 0; scroll-margin-top:84px; }
@@ -454,6 +466,9 @@ td.closed{ color:var(--text-body); font-weight:700; }
 }
 .dept-visit-label{ display:flex; flex-direction:column; align-items:flex-start; gap:6px; }
 .dept-visit-label .badge-visit-only{ margin-left:0; }
+.alt-bg .badge-visit-only{
+  background:var(--white); border:2px solid var(--green-deep);
+}
 
 /* ---------- Initiatives (当院の取り組み) grid ---------- */
 .initiative-grid{
@@ -477,6 +492,9 @@ td.closed{ color:var(--text-body); font-weight:700; }
   background:var(--green-pale); border:1px solid var(--green); border-radius:10px;
   padding:16px 20px; font-size:14px; font-weight:700; color:var(--green-deep);
   text-align:center; margin-bottom:28px; line-height:1.7;
+}
+.alt-bg .notice-box{
+  background:var(--white); border:2px solid var(--green-deep);
 }
 .emphasis-line{
   background:var(--green-pale); border-left:4px solid var(--green-deep); border-radius:0 8px 8px 0;
