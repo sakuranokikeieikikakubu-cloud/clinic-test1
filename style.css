@@ -68,8 +68,18 @@ header.site-header{
      visually open even after their sub-open class was correctly removed. */
   nav.gnav > ul > li:hover > a{ background:var(--green-pale); color:var(--green-deep); }
   nav.gnav > ul > li:hover > a::after{ transform:scaleX(1); }
-  nav.gnav li:hover .sub-menu{ display:block; }
+  /* Each level only reveals its OWN direct child submenu — using a plain
+     descendant selector here would also reveal a 3rd-level flyout the
+     moment the mouse enters the 2nd-level dropdown, before it ever reaches
+     the specific trigger row. */
+  nav.gnav > ul > li:hover > .sub-menu{ display:block; }
   nav.gnav .sub-menu li a:hover{ background:var(--green-pale); color:var(--green-deep); }
+
+  /* 3rd-level flyout (e.g. "訪問診療のみの科目" inside 診療案内) */
+  nav.gnav .sub-menu li{ position:relative; }
+  nav.gnav .sub-menu > li:hover > a{ background:var(--green-pale); color:var(--green-deep); }
+  nav.gnav .sub-menu > li:hover > .sub-menu{ display:block; }
+  nav.gnav .sub-menu .sub-menu{ top:-6px; left:100%; margin-left:6px; }
 }
 
 nav.gnav{ display:flex; min-width:0; font-family:"Noto Serif JP", serif; }
@@ -96,8 +106,7 @@ nav.gnav .sub-menu{
   background:var(--white); border:1px solid var(--line); border-radius:8px;
   min-width:180px; padding:6px; box-shadow:0 8px 20px rgba(30,50,40,.08);
 }
-nav.gnav .sub-menu li a{ display:block; padding:9px 12px; font-size:13px; border-radius:5px; }
-.submenu-note{ display:block; font-size:10px; font-weight:400; color:var(--text-body); margin-top:2px; line-height:1.3; }
+nav.gnav .sub-menu li a{ display:block; padding:9px 12px; font-size:13px; border-radius:5px; cursor:pointer; }
 
 .header-cta{ display:flex; align-items:center; gap:6px; flex:none; }
 .btn-reserve{
@@ -501,6 +510,7 @@ td.closed{ color:var(--text-body); font-weight:700; }
   padding:14px 18px; font-size:14px; font-weight:700; color:var(--green-deep);
   margin:16px 0;
 }
+.alt-bg .emphasis-line{ background:var(--white); }
 
 /* ---------- Compare grid (訪問診療 / 往診) ---------- */
 .compare-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:18px 0 8px; }

@@ -39,10 +39,14 @@
             <li><a href="medical.html#internal">内科</a></li>
             <li><a href="medical.html#surgery">外科</a></li>
             <li><a href="medical.html#cardiology">循環器内科</a></li>
-            <li><a href="medical.html#orthopedics">整形外科<span class="submenu-note">(訪問診療のみ)</span></a></li>
-            <li><a href="medical.html#psychiatry">精神科<span class="submenu-note">(訪問診療のみ)</span></a></li>
-            <li><a href="medical.html#urology">泌尿器科<span class="submenu-note">(訪問診療のみ)</span></a></li>
-            <li><a href="medical.html#dermatology">皮膚科<span class="submenu-note">(訪問診療のみ)</span></a></li>
+            <li><a>訪問診療のみの科目<span class="nav-chevron"></span></a>
+              <ul class="sub-menu">
+                <li><a href="medical.html#orthopedics">整形外科</a></li>
+                <li><a href="medical.html#psychiatry">精神科</a></li>
+                <li><a href="medical.html#urology">泌尿器科</a></li>
+                <li><a href="medical.html#dermatology">皮膚科</a></li>
+              </ul>
+            </li>
             <li><a href="price.html">自費診療・文書料について</a></li>
           </ul>
         </li>
@@ -105,7 +109,7 @@
 
 <section class="page-body" id="home-visit">
   <div class="container">
-    <h2 style="font-size:22px;">①訪問診療について</h2>
+    <h2 style="font-size:22px;">訪問診療について</h2>
     <div class="article-body">
       <p>ひと月の間に2回程度ご自宅に訪問し診察をします。定期的、且つ、医学的な根拠に基づきあらかじめ計画した日時にご自宅へ訪問し、診察、検査、治療、お薬の処方、注射、療養上のご相談、ご自宅での生活の指導などを行います。</p>
     </div>
@@ -115,7 +119,7 @@
 
 <section class="page-body alt-bg" id="house-call">
   <div class="container">
-    <h2 style="font-size:22px;">②往診について</h2>
+    <h2 style="font-size:22px;">往診について</h2>
     <div class="article-body">
       <p>訪問診療を受けている患者様が急変時などに患者様やご家族などからご連絡(電話)を受けて不定期に診察を行う在宅医療のことです。</p>
     </div>
@@ -160,7 +164,7 @@
 
 <section class="page-body" id="rehab">
   <div class="container">
-    <h2 style="font-size:22px;">③訪問リハビリテーションについて</h2>
+    <h2 style="font-size:22px;">訪問リハビリテーションについて</h2>
     <p>当院では土・日・祝も含めた365日体制でサービスを提供しています。</p>
 
     <h3>訪問リハビリテーションとは</h3>
@@ -272,31 +276,40 @@
       if (!isOpen) resetSubmenus();
     });
 
-    gnav.querySelectorAll(':scope > ul > li').forEach(function(li){
+    // Wires up a single <li>'s own toggle behavior. Applied at every nesting
+    // depth (top-level items and nested submenu items alike) so a 3rd-level
+    // flyout behaves exactly like the top-level ones, independently of its
+    // ancestors' open/closed state.
+    function setupToggle(li){
       var link = li.querySelector(':scope > a');
+      var lastToggleAt = 0;
+      link.addEventListener('click', function(e){
+        if (window.matchMedia('(max-width: 1099px)').matches){
+          e.preventDefault();
+          // Guards against duplicate/ghost click events that some
+          // touch-emulation environments (e.g. browser devtools device
+          // toolbars) can fire for a single tap.
+          var now = Date.now();
+          if (now - lastToggleAt < 80) return;
+          lastToggleAt = now;
+          li.classList.toggle('sub-open');
+        } else {
+          closeMenu();
+        }
+      });
+    }
+
+    // Every <li> in the nav (at any depth) is either a toggle trigger (has
+    // its own nested .sub-menu) or a plain leaf link. Leaf links always close
+    // the whole mobile menu on click; triggers only open/close their own
+    // submenu, independently of any ancestor or sibling trigger.
+    gnav.querySelectorAll('li').forEach(function(li){
       if (li.querySelector(':scope > .sub-menu')){
-        var lastToggleAt = 0;
-        link.addEventListener('click', function(e){
-          if (window.matchMedia('(max-width: 1099px)').matches){
-            e.preventDefault();
-            // Guards against duplicate/ghost click events that some
-            // touch-emulation environments (e.g. browser devtools device
-            // toolbars) can fire for a single tap.
-            var now = Date.now();
-            if (now - lastToggleAt < 80) return;
-            lastToggleAt = now;
-            li.classList.toggle('sub-open');
-          } else {
-            closeMenu();
-          }
-        });
+        setupToggle(li);
       } else {
+        var link = li.querySelector(':scope > a');
         link.addEventListener('click', closeMenu);
       }
-    });
-
-    gnav.querySelectorAll('.sub-menu a').forEach(function(link){
-      link.addEventListener('click', closeMenu);
     });
   })();
 </script>
