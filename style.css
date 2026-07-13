@@ -602,7 +602,10 @@ footer{ background:var(--green-deep); color:#ead1d8; padding:56px 0 0; }
 .foot-leaf{ width:40px; height:40px; flex:none; object-fit:contain; }
 .foot-hours{ font-size:13px; margin:14px 0; }
 .foot-hours p{ margin-bottom:2px; }
-footer .back-link{ color:var(--white); border-bottom-color:rgba(255,255,255,.5); }
+/* Footer sits on the same deep-pink brand color as .btn-cta's default fill,
+   so it needs an inverted (white-on-pink) treatment to stay visible there. */
+footer .btn-cta{ background:var(--white); color:var(--green-deep); box-shadow:none; }
+footer .btn-cta:hover{ background:var(--green-pale); color:var(--green-deep); }
 .foot-addr{ font-size:13px; margin:14px 0; }
 .foot-tel{ font-size:20px; font-weight:700; color:var(--white); }
 .foot-map{
