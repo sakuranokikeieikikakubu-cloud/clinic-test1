@@ -297,6 +297,19 @@ nav.gnav .sub-menu li a{ display:block; padding:9px 12px; font-size:13px; border
   .timeline-item{ padding-bottom:14px; }
   .timeline-year{ margin-bottom:2px; }
 }
+.timeline-toggle-wrap{ display:none; }
+.timeline-toggle{
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--white); border:1.5px solid var(--green-deep); color:var(--green-deep);
+  font-size:13px; font-weight:700; padding:10px 20px; border-radius:999px; cursor:pointer;
+}
+.timeline-toggle i{ font-size:14px; transition:transform .2s; }
+.timeline-toggle[aria-expanded="true"] i{ transform:rotate(180deg); }
+@media (max-width:600px){
+  .timeline-older{ display:none; }
+  #careerTimeline.is-expanded .timeline-older{ display:list-item; }
+  .timeline-toggle-wrap{ display:block; text-align:center; margin-top:18px; }
+}
 
 .schedule-table{ width:100%; border-collapse:collapse; font-size:13px; margin-top:16px; }
 .schedule-table th, .schedule-table td{ border:1px solid var(--line); padding:10px 14px; text-align:left; }
