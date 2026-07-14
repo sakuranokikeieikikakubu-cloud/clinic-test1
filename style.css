@@ -466,7 +466,7 @@ td.closed{ color:var(--text-body); font-weight:700; }
    grid (rather than flex-wrap's intrinsic widths) so every button in the
    section shares the same, more generous width. */
 .symptoms .symptom-grid{
-  display:grid; grid-template-columns:repeat(4, 1fr); gap:12px;
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; align-items:stretch;
 }
 @media (max-width:900px){
   .symptoms .symptom-grid{ grid-template-columns:repeat(3, 1fr); }
@@ -485,6 +485,12 @@ a.symptom-tag::after{
   content:"→"; font-size:14px; font-weight:700; line-height:1; color:var(--green-deep);
 }
 a.symptom-tag:hover{ background:var(--green-pale); border-color:var(--green-deep); }
+.sp-break{ display:none; }
+@media (max-width:600px){
+  a.symptom-tag{ font-size:12px; padding:9px 10px; gap:6px; }
+  a.symptom-tag::after{ font-size:13px; }
+  .sp-break{ display:inline; }
+}
 
 /* ---------- Greeting ---------- */
 .greeting{ background:var(--green-pale); }
