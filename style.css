@@ -293,6 +293,10 @@ nav.gnav .sub-menu li a{ display:block; padding:9px 12px; font-size:13px; border
 .timeline-item:last-child::after{ content:none; }
 .timeline-year{ font-size:13px; font-weight:700; color:var(--green-deep); margin-bottom:4px; }
 .timeline-desc{ font-size:14px; color:var(--text-body); }
+@media (max-width:600px){
+  .timeline-item{ padding-bottom:14px; }
+  .timeline-year{ margin-bottom:2px; }
+}
 
 .schedule-table{ width:100%; border-collapse:collapse; font-size:13px; margin-top:16px; }
 .schedule-table th, .schedule-table td{ border:1px solid var(--line); padding:10px 14px; text-align:left; }
