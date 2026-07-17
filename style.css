@@ -416,8 +416,13 @@ td.closed{ color:var(--text-body); font-weight:700; }
   -webkit-tap-highlight-color:transparent;
   outline:none;
 }
-.svc-card:hover{ transform:translateY(-3px) translateZ(0); box-shadow:0 10px 24px rgba(30,60,45,.10); }
 .svc-card:focus-visible{ outline:2px solid var(--green-deep); outline-offset:2px; }
+@media (hover:hover) and (pointer:fine){
+  /* Real-mouse-only: touch browsers fire :hover on tap (and keep it "stuck"
+     until the next tap elsewhere), which briefly applied this transform and
+     revealed a hairline seam between .svc-photo and its gradient overlay. */
+  .svc-card:hover{ transform:translateY(-3px) translateZ(0); box-shadow:0 10px 24px rgba(30,60,45,.10); }
+}
 .svc-photo{
   aspect-ratio:3/2; background-color:var(--green-pale);
   background-size:cover; background-position:center;
