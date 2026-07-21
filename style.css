@@ -577,6 +577,14 @@ a.symptom-tag:hover{ background:var(--green-pale); border-color:var(--green-deep
 }
 .alt-bg .emphasis-line{ background:var(--white); }
 
+/* ---------- Content placeholder (coming soon) ---------- */
+.content-placeholder{
+  border:1px dashed var(--line); border-radius:10px;
+  padding:36px 20px; text-align:center; font-size:13px; color:var(--text-body);
+  margin-bottom:8px;
+}
+.alt-bg .content-placeholder{ border-color:var(--green-deep); background:var(--white); }
+
 /* ---------- Compare grid (訪問診療 / 往診) ---------- */
 .compare-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:18px 0 8px; }
 .compare-card{
