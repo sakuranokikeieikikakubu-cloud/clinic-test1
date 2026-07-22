@@ -11,7 +11,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont/tabler-icons.min.css">
 <link rel="icon" type="image/png" href="images/favicon.png">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -288,19 +287,6 @@
   </div>
 </section>
 
-<section class="area" id="area">
-  <div class="container">
-    <div class="sec-head">
-      <p class="eyebrow">HOME VISIT AREA</p>
-      <h2>在宅医療対応エリア</h2>
-    </div>
-    <p>さくらの樹クリニックでは在宅医療にも力を入れています。</p>
-    <div class="area-map" id="clinic-area-map"></div>
-    <p>平野区を中心に、大阪市・八尾市・松原市・東大阪市など、当院から半径16km以内は訪問可能です。どうぞお気軽にご相談ください。<br><small>※在宅医療対応エリアの範囲は厚生局の定めによるものです。</small></p>
-    <a class="btn-cta" href="home-medical.html#area">対応エリアを詳しく見る<i class="ti ti-arrow-right"></i></a>
-  </div>
-</section>
-
 <section class="renkei">
   <div class="container">
     <div class="sec-head">
@@ -567,44 +553,6 @@
       toggle.classList.toggle('is-expanded', !collapsed);
       textEl.textContent = collapsed ? ('他' + hiddenCount + '施設を見る') : '閉じる';
     });
-  })();
-</script>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-<script>
-  (function(){
-    var mapEl = document.getElementById('clinic-area-map');
-    if (!mapEl || typeof L === 'undefined') return;
-
-    var clinicLatLng = [34.60910073695148, 135.55670236773165];
-
-    var map = L.map(mapEl, { scrollWheelZoom: false }).setView(clinicLatLng, 11);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    var rangeCircle = L.circle(clinicLatLng, {
-      color: '#c96b83',
-      weight: 1,
-      fillColor: '#c96b83',
-      fillOpacity: 0.22,
-      radius: 16000
-    }).addTo(map);
-
-    var clinicIcon = L.divIcon({
-      className: 'clinic-pin',
-      html: '<svg width="28" height="40" viewBox="0 0 28 40" xmlns="http://www.w3.org/2000/svg"><path d="M14 0C6.3 0 0 6.3 0 14c0 10.5 14 26 14 26s14-15.5 14-26C28 6.3 21.7 0 14 0z" fill="#e63946" stroke="#ffffff" stroke-width="1.5"/><circle cx="14" cy="14" r="5.5" fill="#ffffff"/></svg>',
-      iconSize: [28, 40],
-      iconAnchor: [14, 40],
-      popupAnchor: [0, -36]
-    });
-
-    L.marker(clinicLatLng, { icon: clinicIcon }).addTo(map)
-      .bindPopup('さくらの樹クリニック');
-
-    map.fitBounds(rangeCircle.getBounds());
   })();
 </script>
 
