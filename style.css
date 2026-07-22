@@ -514,11 +514,11 @@ a.symptom-tag:hover{ background:var(--green-pale); border-color:var(--green-deep
 /* ---------- Area (home visit range) ---------- */
 .area{ background:var(--white); text-align:center; }
 .area-map{
-  max-width:520px; margin:20px auto; aspect-ratio:16/10; border-radius:12px;
-  background:radial-gradient(circle at 50% 45%, rgba(201,107,131,.22) 0 30%, var(--green-pale) 31% 100%);
-  border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
-  color:var(--green-deep); font-size:12px;
+  max-width:520px; margin:20px auto; height:400px; border-radius:12px;
+  border:1px solid var(--line); overflow:hidden; background:var(--green-pale);
 }
+.area-map .leaflet-popup-content{ font-family:'Noto Sans JP', sans-serif; font-size:13px; color:var(--text-body); margin:8px 10px; }
+.area-map .clinic-pin{ background:transparent; border:none; }
 .area p{ font-size:13px; color:var(--text-body); max-width:640px; margin:14px auto 0; }
 
 /* ---------- Jump nav buttons ---------- */
