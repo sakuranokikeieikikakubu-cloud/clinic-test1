@@ -516,6 +516,7 @@ a.symptom-tag:hover{ background:var(--green-pale); border-color:var(--green-deep
 .area-map{
   max-width:520px; margin:20px auto; height:400px; border-radius:12px;
   border:1px solid var(--line); overflow:hidden; background:var(--green-pale);
+  position:relative; z-index:1; isolation:isolate;
 }
 .area-map .leaflet-popup-content{ font-family:'Noto Sans JP', sans-serif; font-size:13px; color:var(--text-body); margin:8px 10px; }
 .area-map .clinic-pin{ background:transparent; border:none; }
