@@ -89,8 +89,21 @@ function syncStructuredData(html, structuredDataPartial, file) {
   const startMark = '<!-- structured-data:start -->';
   const endMark = '<!-- structured-data:end -->';
 
-  if (html.includes(startMark)) {
-    return replaceInclusive(html, startMark, endMark, structuredDataPartial, 'structured-data', file);
+  const startIdx = html.indexOf(startMark);
+  if (startIdx !== -1) {
+    const endIdx = html.indexOf(endMark, startIdx);
+    if (endIdx === -1) {
+      console.warn(`  [skip] structured-data: end marker not found in ${file}`);
+      return html;
+    }
+    let endOfRegion = endIdx + endMark.length;
+    // Consume any line breaks directly after the old block so re-running
+    // this doesn't accumulate an extra blank line each time (the partial
+    // itself already supplies exactly one trailing newline).
+    while (html[endOfRegion] === '\n' || html[endOfRegion] === '\r') {
+      endOfRegion++;
+    }
+    return html.slice(0, startIdx) + structuredDataPartial + html.slice(endOfRegion);
   }
 
   const anchor = '<link rel="stylesheet" href="style.css">';
