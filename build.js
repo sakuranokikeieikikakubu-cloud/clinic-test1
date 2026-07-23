@@ -1,6 +1,6 @@
-// Syncs the shared header, footer, and nav-toggle script into every page.
-// Run `node build.js` after editing files in partials/, then verify pages
-// in the browser as usual before committing.
+// Syncs the shared header, footer, nav-toggle script, and structured data
+// into every page. Run `node build.js` after editing files in partials/,
+// then verify pages in the browser as usual before committing.
 
 const fs = require('fs');
 const path = require('path');
@@ -81,10 +81,35 @@ function syncNavScript(html, navScriptPartial, file) {
   return html.slice(0, lineStart) + navScriptPartial + html.slice(endOfRegion);
 }
 
+// Sync the shared structured-data (JSON-LD) block into <head>. If the
+// block already exists (marked by the structured-data:start/end comments),
+// replace it in place. Otherwise, insert it right after the shared
+// stylesheet link so it lands inside <head> on every page.
+function syncStructuredData(html, structuredDataPartial, file) {
+  const startMark = '<!-- structured-data:start -->';
+  const endMark = '<!-- structured-data:end -->';
+
+  if (html.includes(startMark)) {
+    return replaceInclusive(html, startMark, endMark, structuredDataPartial, 'structured-data', file);
+  }
+
+  const anchor = '<link rel="stylesheet" href="style.css">';
+  const anchorIdx = html.indexOf(anchor);
+  if (anchorIdx === -1) {
+    console.warn(`  [skip] structured-data: anchor not found in ${file}`);
+    return html;
+  }
+  const afterAnchor = anchorIdx + anchor.length;
+  const lineEndIdx = html.indexOf('\n', afterAnchor);
+  const insertAt = lineEndIdx === -1 ? afterAnchor : lineEndIdx + 1;
+  return html.slice(0, insertAt) + structuredDataPartial + html.slice(insertAt);
+}
+
 function main() {
   const headerPartial = readPartial('header.html');
   const footerPartial = readPartial('footer.html');
   const navScriptPartial = readPartial('nav-script.js');
+  const structuredDataPartial = readPartial('structured-data.html');
 
   const targetFiles = fs
     .readdirSync(ROOT)
@@ -99,9 +124,11 @@ function main() {
     const header = matchLineEndings(headerPartial, original);
     const footer = matchLineEndings(footerPartial, original);
     const navScript = matchLineEndings(navScriptPartial, original);
+    const structuredData = matchLineEndings(structuredDataPartial, original);
     const nl = original.includes('\r\n') ? '\r\n' : '\n';
 
     let updated = original;
+    updated = syncStructuredData(updated, structuredData, file);
     updated = replaceInclusive(updated, '<header class="site-header">', '</header>', header, 'header', file);
     updated = replaceUpTo(updated, '<footer id="footer">', '<script>', footer + nl + nl, 'footer', file);
     updated = syncNavScript(updated, navScript, file);
