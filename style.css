@@ -725,6 +725,8 @@ footer .btn-cta:hover{ background:var(--green-pale); color:var(--green-deep); }
     border-top:8px solid var(--green-deep); border-bottom:none;
     border-left:6px solid transparent; border-right:6px solid transparent;
   }
+  .foot-addr-sep{ display:none; }
+  .foot-addr-line{ display:block; }
 }
 
 @media (max-width:480px){
