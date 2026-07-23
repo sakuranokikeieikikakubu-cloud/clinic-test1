@@ -242,6 +242,10 @@ nav.gnav .sub-menu li a{ display:block; padding:9px 12px; font-size:13px; border
 .breadcrumb a{ color:var(--green-deep); }
 .breadcrumb a:hover{ text-decoration:underline; }
 .breadcrumb .sep{ color:var(--text-body); }
+.breadcrumb-current{
+  min-width:0; max-width:100%;
+  overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
+}
 
 /* ---------- Page title (internal pages) ---------- */
 .page-title{
