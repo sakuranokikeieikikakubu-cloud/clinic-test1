@@ -219,6 +219,10 @@ nav.gnav .sub-menu li a{ display:block; padding:9px 12px; font-size:13px; border
   font-size:12px; letter-spacing:.2em; color:#ead1d8; margin-bottom:14px;
   text-shadow:0 2px 8px rgba(0,0,0,.55), 0 1px 3px rgba(0,0,0,.5);
 }
+.hero h1{
+  font-size:15px; font-weight:500; letter-spacing:.02em; margin-bottom:10px; color:#f5e9ec;
+  text-shadow:0 2px 8px rgba(0,0,0,.5), 0 1px 3px rgba(0,0,0,.45);
+}
 .hero h2{
   font-size:clamp(24px,4vw,34px); line-height:1.6; margin-bottom:18px;
   text-shadow:0 2px 10px rgba(0,0,0,.55), 0 1px 3px rgba(0,0,0,.5);
@@ -247,12 +251,13 @@ nav.gnav .sub-menu li a{ display:block; padding:9px 12px; font-size:13px; border
   text-align:center;
 }
 .page-title .eyebrow{ font-size:12px; letter-spacing:.2em; color:#ead1d8; margin-bottom:10px; }
-.page-title h1{ font-size:clamp(22px,4vw,30px); }
+.page-title h1, .page-title h2{ font-size:clamp(22px,4vw,30px); }
 
 .page-body{ background:var(--white); }
 .page-body.alt-bg{ background:var(--green-pale); }
 .page-body h2{ font-size:19px; color:var(--green-deep); margin:28px 0 14px; }
 .page-body h2:first-child{ margin-top:0; }
+.page-body h1{ font-size:19px; color:var(--green-deep); margin:0 0 14px; }
 .page-body h3{ font-size:15px; color:var(--green-deep); margin:18px 0 10px; }
 .page-body h4{ font-size:14px; color:var(--text-heading); margin:16px 0 8px; }
 .page-body p{ font-size:14px; color:var(--text-body); margin-bottom:14px; }
@@ -336,8 +341,8 @@ nav.gnav .sub-menu li a{ display:block; padding:9px 12px; font-size:13px; border
   display:inline-block; font-size:10px; font-weight:700; color:var(--green-deep);
   background:var(--green-pale); border-radius:999px; padding:2px 10px;
 }
-.blog-card h3{ font-size:14px; line-height:1.7; color:var(--text-heading); margin:0; }
-.blog-card:hover h3{ color:var(--green-deep); text-decoration:underline; }
+.blog-card h2{ font-size:14px; line-height:1.7; color:var(--text-heading); margin:0; }
+.blog-card:hover h2{ color:var(--green-deep); text-decoration:underline; }
 
 .map-embed{
   aspect-ratio:16/9; border-radius:10px; overflow:hidden;
@@ -440,7 +445,7 @@ td.closed{ color:var(--text-body); font-weight:700; }
 .svc-photo.rehab{ background-image:url("images/card-rehab.jpg"); }
 .svc-body{ position:relative; z-index:2; margin-top:-34px; padding:0 14px 16px; }
 .svc-card .ico{ display:block; font-size:26px; color:var(--green-deep); margin-bottom:4px; line-height:1; }
-.svc-card h4{ font-size:23px; font-weight:700; margin-bottom:4px; color:var(--text-heading); }
+.svc-card h3{ font-size:23px; font-weight:700; margin-bottom:4px; color:var(--text-heading); }
 .svc-card span{ font-size:12px; color:var(--green); }
 
 /* ---------- Features (5 reasons) ---------- */
@@ -461,7 +466,7 @@ td.closed{ color:var(--text-body); font-weight:700; }
 
 /* ---------- Symptom search ---------- */
 .symptoms{ background:var(--white); }
-.symptom-group-title{ font-size:14px; font-weight:700; color:var(--green-deep); margin:24px 0 14px; }
+.symptom-group-title{ font-family:"Noto Sans JP", sans-serif; font-size:14px; font-weight:700; color:var(--green-deep); margin:24px 0 14px; }
 .symptom-grid{ display:flex; flex-wrap:wrap; gap:8px 10px; }
 .symptom-tag{
   display:inline-block; font-size:13px; padding:6px 14px;
@@ -682,7 +687,7 @@ footer .btn-cta:hover{ background:var(--green-pale); color:var(--green-deep); }
 @media (max-width:820px){
   .nh-grid, .greet-grid, .foot-grid{ grid-template-columns:1fr; }
   .svc-grid{ grid-template-columns:repeat(2,1fr); }
-  .svc-card h4{ font-size:18px; }
+  .svc-card h3{ font-size:18px; }
   .blog-grid{ grid-template-columns:repeat(2,1fr); }
   .sisters-grid{ grid-template-columns:repeat(2,1fr); }
   .feature-carousel{
