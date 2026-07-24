@@ -739,7 +739,12 @@ footer .btn-cta:hover{ background:var(--green-pale); color:var(--green-deep); }
   cursor:pointer; list-style:none; transition:background .15s;
 }
 .faq-q::-webkit-details-marker{ display:none; }
-.faq-q:hover{ background:var(--green-pale); }
+.faq-q{ -webkit-tap-highlight-color:transparent; }
+@media (hover:hover) and (pointer:fine){
+  /* Real-mouse-only: touch browsers fire :hover on tap and keep it "stuck"
+     until the next tap elsewhere, leaving the background pink after closing. */
+  .faq-q:hover{ background:var(--green-pale); }
+}
 .faq-mark{
   flex:none; display:flex; align-items:center; justify-content:center;
   width:28px; height:28px; border-radius:50%;
