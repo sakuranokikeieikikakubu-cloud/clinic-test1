@@ -739,7 +739,10 @@ footer .btn-cta:hover{ background:var(--green-pale); color:var(--green-deep); }
   cursor:pointer; list-style:none; transition:background .15s;
 }
 .faq-q::-webkit-details-marker{ display:none; }
-.faq-q{ -webkit-tap-highlight-color:transparent; }
+.faq-q{ -webkit-tap-highlight-color:transparent; outline:none; }
+/* Tapping <summary> focuses it and focus sticks until another element is
+   tapped; only show a focus ring for keyboard use, never a background. */
+.faq-q:focus-visible{ outline:2px solid var(--green-deep); outline-offset:-2px; }
 @media (hover:hover) and (pointer:fine){
   /* Real-mouse-only: touch browsers fire :hover on tap and keep it "stuck"
      until the next tap elsewhere, leaving the background pink after closing. */

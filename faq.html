@@ -454,5 +454,23 @@
   })();
 </script>
 
+<script>
+  (function(){
+    // Tapping a FAQ <summary> focuses it, and on touch devices that focus
+    // (and the pink background it can drag along with it) sticks around
+    // until another element is tapped. Blur it right after a pointer-driven
+    // click so it never lingers; keyboard activation (no preceding pointer
+    // event) is left alone so the focus-visible ring still works.
+    document.querySelectorAll('.faq-q').forEach(function(summary){
+      var usedPointer = false;
+      summary.addEventListener('pointerdown', function(){ usedPointer = true; });
+      summary.addEventListener('click', function(){
+        if (usedPointer) summary.blur();
+        usedPointer = false;
+      });
+    });
+  })();
+</script>
+
 </body>
 </html>
