@@ -725,6 +725,35 @@ footer .btn-cta:hover{ background:var(--green-pale); color:var(--green-deep); }
   .foot-addr-line{ display:block; }
 }
 
+/* ---------- FAQ accordion ---------- */
+.faq-category:not(:first-child){ margin-top:8px; }
+.faq-list{ display:flex; flex-direction:column; gap:12px; margin-top:20px; }
+.faq-item{
+  background:var(--white); border:1px solid var(--line); border-radius:10px;
+  overflow:hidden;
+}
+.alt-bg .faq-item{ background:var(--paper); }
+.faq-q{
+  display:flex; align-items:center; gap:14px; padding:18px 20px;
+  font-size:14px; font-weight:700; color:var(--text-heading);
+  cursor:pointer; list-style:none; transition:background .15s;
+}
+.faq-q::-webkit-details-marker{ display:none; }
+.faq-q:hover{ background:var(--green-pale); }
+.faq-mark{
+  flex:none; display:flex; align-items:center; justify-content:center;
+  width:28px; height:28px; border-radius:50%;
+  font-family:"Noto Serif JP", serif; font-size:14px; font-weight:700;
+}
+.faq-q .faq-mark{ background:var(--green-deep); color:var(--white); }
+.faq-q-text{ flex:1; line-height:1.6; }
+.faq-chevron{ flex:none; font-size:15px; color:var(--green-deep); transition:transform .2s; }
+.faq-item[open] .faq-chevron{ transform:rotate(180deg); }
+.faq-a{ display:flex; gap:14px; padding:0 20px 20px; border-top:1px solid var(--line); padding-top:16px; }
+.faq-a .faq-mark{ background:var(--green-pale); color:var(--green-deep); }
+.faq-a p{ font-size:14px; color:var(--text-body); margin:0; line-height:1.8; }
+.faq-a a{ color:var(--green-deep); text-decoration:underline; }
+
 @media (max-width:480px){
   .hero{ padding:56px 16px; }
   .hero-inner{ padding:20px 16px; }
