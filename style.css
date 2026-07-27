@@ -324,6 +324,21 @@ nav.gnav .sub-menu li a{ display:block; padding:9px 12px; font-size:13px; border
 .alt-bg .schedule-table th, .alt-bg .schedule-table td{ border-color:var(--green-deep); background:var(--white); }
 .alt-bg .schedule-table thead th{ background:var(--green-deep); color:var(--white); }
 
+@media (max-width:600px){
+  .schedule-table, .schedule-table tbody, .schedule-table tr, .schedule-table td{ display:block; width:100%; }
+  .schedule-table thead{ display:none; }
+  .schedule-table tr{
+    border:1px solid var(--line); border-radius:10px; background:var(--white);
+    padding:14px 16px; margin-bottom:12px;
+  }
+  .schedule-table tr:last-child{ margin-bottom:0; }
+  .schedule-table td{ border:none; padding:0; }
+  .schedule-table td:first-child{
+    font-size:15px; font-weight:700; color:var(--green-deep); margin-bottom:8px;
+  }
+  .schedule-table td:last-child{ font-size:13px; line-height:1.8; }
+}
+
 /* ---------- Blog list ---------- */
 .blog-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
 .blog-card{
