@@ -1,0 +1,29 @@
+# さくらの樹クリニック
+
+大阪市平野区にある内科・在宅医療クリニックです。内科・外科・循環器内科の外来診療に加え、訪問診療・往診・訪問リハビリテーションによる在宅医療にも対応しています。整形外科・精神科・泌尿器科・皮膚科については、非常勤医師による訪問診療のみで対応しています。
+
+## 基本情報
+- 医療機関名: 医療法人桜樹会 さくらの樹クリニック
+- 住所: 〒547-0022 大阪市平野区瓜破東1-1-2 シャルマンコーポ南平野1階
+- 電話番号: 06-6777-9622
+- FAX番号: 06-6777-9632
+- 診療時間: 9:00〜12:00(受付8:50〜)
+- 休診日: 火曜日・土曜日・日曜日・祝日
+- 訪問診療対応エリア: 大阪市平野区を中心に半径16km以内
+- 院長: 福原龍太郎
+
+## 主要ページ
+- [トップページ](https://sakuranokikeieikikakubu-cloud.github.io/clinic-test1/index.html): クリニックの概要、症状・疾患から探すページへの入り口
+- [診療案内](https://sakuranokikeieikikakubu-cloud.github.io/clinic-test1/medical.html): 内科・外科・循環器内科・整形外科・精神科・泌尿器科・皮膚科の診療内容
+- [在宅医療](https://sakuranokikeieikikakubu-cloud.github.io/clinic-test1/home-medical.html): 訪問診療・往診・訪問リハビリテーションの案内、対応エリア
+- [院内紹介](https://sakuranokikeieikikakubu-cloud.github.io/clinic-test1/clinic.html): 医院の設備・雰囲気、当院の取り組み
+- [医師紹介](https://sakuranokikeieikikakubu-cloud.github.io/clinic-test1/doctor.html): 院長略歴、非常勤医師の診療日
+- [アクセス・診療時間](https://sakuranokikeieikikakubu-cloud.github.io/clinic-test1/access.html): 診療時間、休診日、駐車場、地図
+- [自費診療・文書料について](https://sakuranokikeieikikakubu-cloud.github.io/clinic-test1/price.html): 予防接種・健康診断・自費診療・文書料の料金
+- [疾患・病名から探す](https://sakuranokikeieikikakubu-cloud.github.io/clinic-test1/disease.html): 高血圧症・高脂血症・不整脈・心不全・認知症など
+- [症状・お悩みから探す](https://sakuranokikeieikikakubu-cloud.github.io/clinic-test1/symptom.html): 発熱・腰痛・通院が難しい・皮膚トラブル・こころの不調など
+- [よくある質問](https://sakuranokikeieikikakubu-cloud.github.io/clinic-test1/faq.html): 診療・在宅医療・料金・アクセスに関するFAQ
+- [スタッフブログ](https://sakuranokikeieikikakubu-cloud.github.io/clinic-test1/blog.html): クリニックからのお知らせ・ブログ記事
+- [お知らせ](https://sakuranokikeieikikakubu-cloud.github.io/clinic-test1/news.html): 休診日変更などの重要なお知らせ
+
+<!-- 本番ドメインが決まり次第、上記URLをすべてGitHub PagesのURL(https://sakuranokikeieikikakubu-cloud.github.io/clinic-test1/)から本番ドメインに更新してください。 -->
